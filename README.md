@@ -1,18 +1,44 @@
-# Getting Started with Create React App
+# 使用Create React App创建项目
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 创建myapp并支持typescript
 
-## Available Scripts
+create-react-app myapp --template typescript
 
-In the project directory, you can run:
+### 网络请求使用axios
+yarn add axios -D
 
-### `yarn start`
+### 环境设置
+创建 .env 和 .env.development 文件，设置环境变量REACT_APP_API_URL
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### axios网络工具封装
+1. 创建 request.ts 文件，二次封装axios网络工具并设置请求拦截器和响应拦截器来处理公共逻辑
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+2. 创建src/api/search.ts文件，封装QQ请求接口方法queryInfo
+
+### 网络代理配置：
+1. 安装插件 http-proxy-middleware
+yarn add http-proxy-middleware -D
+创建setupProxy.js文件，配置网络请求代理，解决跨域问题
+
+### 开发页面及组件
+1. 开发搜索页面 UserPage.tsx 和 Loadding 组件Loadding.tsx
+
+2. src/util/index.ts中封装debunce hook、qq号校验函数等
+
+3. 输入框输入QQ号的处理
+    输入qq号时，使用正则对输入值进行校验判断
+    输入qq号时，调用debunce hook进行防抖处理，避免频繁请求网络接口，只有在输入完QQ号后再请求接口
+### 单元测试
+1. 安装@testing-library/react-hooks、msw测试库
+   yarn add @testing-library/react-hooks msw -D
+2. 测试根据qq号请求用户信息方法
+    
+   1. /src下创建__tests__文件夹及search.ts文件
+   2. search.ts文件中，边界测试单元
+   3. 运行测试单元，npm run test
+### 应用运行命令：
+
+yarn start
 
 ### `yarn test`
 
