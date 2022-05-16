@@ -23,7 +23,7 @@ yarn add http-proxy-middleware -D
 ### 开发页面及组件
 1. 开发搜索页面 UserPage.tsx 和 Loadding 组件Loadding.tsx
 
-2. src/util/index.ts中封装debunce hook、qq号校验函数等
+2. src/util/index.ts文件中封装debunce hook、qq号校验函数等
 
 3. 输入框输入QQ号的处理
     输入qq号时，使用正则对输入值进行校验判断
@@ -33,9 +33,9 @@ yarn add http-proxy-middleware -D
    yarn add @testing-library/react-hooks msw -D
 2. 测试根据qq号请求用户信息方法
     
-   1. /src下创建__tests__文件夹及search.ts文件
-   2. search.ts文件中，边界测试单元
-   3. 运行测试单元，npm run test
+   1. 在/src文件夹下创建__tests__文件夹及search.ts文件
+   2. search.ts文件中，编写测试单元
+   3. 运行测试单元：npm run test
 ### 应用运行命令：
 
 yarn start
